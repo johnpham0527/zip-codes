@@ -1,5 +1,5 @@
 # zip-codes
-Python scripts to obtain the ZIP code of a given list of schools or libraries using the Google Maps API
+I have created Python scripts to obtain the ZIP code of a given list of schools or libraries using the Google Maps API
 
 Purpose:
 The codes in this repository takes a name of a public school or library in Queens, NY and returns the ZIP code from the resulting JSON data
