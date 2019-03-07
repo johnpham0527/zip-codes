@@ -15,7 +15,6 @@
 #       P.S. 144 Col Jeromus Remsen
 #       P.S. 228 Early Childhood Magnet School of the Arts
 #   2. A ZIP code cannot be found for some schools.
-#   3. The CSV Writer sometimes outputs an extra line break in the cell. When the CSV file is opened in Excel, it makes it look as if the cell is empty.
 
 
 import googlemaps
@@ -28,11 +27,12 @@ with open("QueensSchools.txt", encoding = 'utf-8') as inputFile:
     outputFile = open('QueensSchoolsZip.csv','w',newline=None) #open an output file for writing
     outputWriter = csv.writer(outputFile) #initiate the CSV writer object
     for schoolName in inputFile: #for each school in the input file
-        schoolAddress = schoolName + " Queens, NY" #create a simple address based on the school name and county (Queens)
+        schoolNameNoWhiteSpace = schoolName.rstrip() #remove trailing white space
+        schoolAddress = schoolNameNoWhiteSpace + " Queens, NY" #create a simple address based on the school name and county (Queens)
         geocodeResult = gmaps.geocode(schoolAddress) #generate a geocode result from Google Maps based on the address
         schoolZIPCode = geocodeResult[0]["address_components"][7]["long_name"] #obtain the ZIP code from the geocode result
-        print(schoolName + " " + schoolZIPCode) #print the result to the console
-        outputWriter.writerow([schoolName,schoolZIPCode]) #write the school name and school ZIP code to the CSV output file
+        print(schoolNameNoWhiteSpace + " " + schoolZIPCode) #print the result to the console
+        outputWriter.writerow([schoolNameNoWhiteSpace,schoolZIPCode]) #write the school name and school ZIP code to the CSV output file
     outputFile.close() #close the file
 
 
