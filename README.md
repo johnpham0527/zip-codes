@@ -13,6 +13,5 @@ Known Bugs:
        Goldie Maple Academy
        P.S. 144 Col Jeromus Remsen
        P.S. 228 Early Childhood Magnet School of the Arts
-2. A ZIP code cannot be found for some schools
-3. The CSV Writer sometimes outputs a blank in place of a school name
-The reason for this error is because Google Maps can't find the school name as it is spelled or written
+2. A ZIP code cannot be found for some schools.
+3. The CSV Writer sometimes outputs an extra line break in the cell. When the CSV file is opened in Excel, it makes it look as if the cell is empty.
