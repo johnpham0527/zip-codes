@@ -15,8 +15,7 @@
 #       P.S. 144 Col Jeromus Remsen
 #       P.S. 228 Early Childhood Magnet School of the Arts
 #   2. A ZIP code cannot be found for some schools.
-#   3. The CSV Writer sometimes outputs a blank in place of a school name
-#   The reason for this error is because Google Maps can't find the school name as it is spelled or written
+#   3. The CSV Writer sometimes outputs an extra line break in the cell. When the CSV file is opened in Excel, it makes it look as if the cell is empty.
 
 
 import googlemaps
@@ -26,7 +25,7 @@ gmaps = googlemaps.Client(key='AIzaSyBbe1f_e6F1XtJ1s91KTz6VmgzU1fNRdEI') #initia
 
 #open a file in the current directory containing a list of all Queens public schools
 with open("QueensSchools.txt", encoding = 'utf-8') as inputFile:
-    outputFile = open('QueensSchoolsZip.csv','w',newline='') #open an output file for writing
+    outputFile = open('QueensSchoolsZip.csv','w',newline=None) #open an output file for writing
     outputWriter = csv.writer(outputFile) #initiate the CSV writer object
     for schoolName in inputFile: #for each school in the input file
         schoolAddress = schoolName + " Queens, NY" #create a simple address based on the school name and county (Queens)
