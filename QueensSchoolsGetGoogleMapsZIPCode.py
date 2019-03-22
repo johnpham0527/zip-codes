@@ -24,7 +24,7 @@ gmaps = googlemaps.Client(key='AIzaSyBbe1f_e6F1XtJ1s91KTz6VmgzU1fNRdEI') #initia
 
 #open a file in the current directory containing a list of all Queens public schools
 with open("QueensSchools.txt", encoding = 'utf-8') as inputFile:
-    outputFile = open('QueensSchoolsZip.csv','w',newline=None) #open an output file for writing
+    outputFile = open('QueensSchoolsZip.csv','w',newline='') #open an output file for writing
     outputWriter = csv.writer(outputFile) #initiate the CSV writer object
     for schoolName in inputFile: #for each school in the input file
         schoolNameNoWhiteSpace = schoolName.rstrip() #remove trailing white space
